@@ -1,0 +1,23 @@
+{
+  "name": "docker-not-rocket-science",
+  "version": "1.0.0",
+  "description": "This is an intro to Docker",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/spykins/docker-not-rocket-science.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/spykins/docker-not-rocket-science/issues"
+  },
+  "homepage": "https://github.com/spykins/docker-not-rocket-science#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
