@@ -9,3 +9,7 @@ RUN npm run build
 # stage two
 FROM ubuntu:18.04 AS SECOND_STAGE
 COPY --from=FIRST_STAGE /code/build /minified/
+
+#stage three
+FROM nginx AS my_nginx
+COPY --from=SECOND_STAGE /minified/ /usr/share/nginx/html
