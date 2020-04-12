@@ -1,15 +1,17 @@
-'use strict';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+import * as serviceWorker from './serviceWorker';
 
-const express = require('express');
+ReactDOM.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+  document.getElementById('root')
+);
 
-const PORT = 8080;
-const HOST = '0.0.0.0';
-
-// Creating express App
-const app = express();
-app.get('/', (req, res) => {
-  res.send('This is an intro to Docker');
-});
-
-app.listen(PORT, HOST);
-console.log(`Running: http://${HOST}:${PORT}`);
+// If you want your app to work offline and load faster, you can change
+// unregister() to register() below. Note this comes with some pitfalls.
+// Learn more about service workers: https://bit.ly/CRA-PWA
+serviceWorker.unregister();

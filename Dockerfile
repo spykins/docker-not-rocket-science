@@ -1,5 +1,15 @@
-FROM node:10
-COPY package*.json ./
-RUN npm install
-COPY src src
-CMD [ "node", "src/index.js" ]
+FROM node:12-stretch AS FIRST_STAGE
+WORKDIR /code/
+COPY package*.json /code/
+RUN npm ci --only=production
+COPY . /code/
+RUN npm run build 
+
+
+# stage two
+FROM ubuntu:18.04 AS SECOND_STAGE
+COPY --from=FIRST_STAGE /code/build /minified/
+
+#stage three
+FROM nginx AS my_nginx
+COPY --from=SECOND_STAGE /minified/ /usr/share/nginx/html
