@@ -1,2 +1,1 @@
-FROM ubuntu
-CMD ["/bin/bash"]
+FROM node:10
